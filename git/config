@@ -1,6 +1,6 @@
 [user]
 	name = Dav Clark
-	email = davclark@berkeley.edu
+	email = davclark@gmail.com
 [push]
 	default = simple
 [color]
@@ -20,3 +20,5 @@
     pr = pull --rebase
     cam = commit -am
     cm = commit -m
+[svn]
+    rmdir = true

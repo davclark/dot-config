@@ -6,7 +6,7 @@
 [color]
 	ui = true
 [core]
-	excludesfile = /Users/dav/.gitignore_global
+	excludesfile = /Users/dav/.config/git/ignore
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

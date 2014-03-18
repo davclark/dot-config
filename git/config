@@ -17,8 +17,11 @@
     ls = log --stat
     lo = log ORIG_HEAD.. --stat --no-merges
     undo = reset --hard
-    pr = pull --rebase
+    prb = pull --rebase
+    prq = pull-request
     cam = commit -am
     cm = commit -m
+    rem = remote -v
+    ff = pull --ff
 [svn]
     rmdir = true

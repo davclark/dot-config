@@ -35,6 +35,9 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 . $(brew --prefix)/etc/bash_completion
 fi
 
+# This makes rate limiting less likely behind a NAT
+export HOMEBREW_GITHUB_API_TOKEN=c1ad8e078dc1af9c625e69524ee2e1dc53b35b90
+
 # OS X and other systems purportedly disagree about locale naming conventions,
 # especially once you've used a non-US locale
 # I got the below from the net, but this doesn't actually seem to work on Ubuntu

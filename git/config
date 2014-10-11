@@ -1,16 +1,17 @@
 [push]
-	default = simple
+    default = simple
 [color]
-	ui = true
+    ui = true
 [core]
-	excludesfile = /Users/dav/.config/git/ignore
+    excludesfile = /Users/dav/.config/git/ignore
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
 [alias]
+    lg = log --oneline --graph --decorate --all
     ls = log --stat
     lo = log ORIG_HEAD.. --stat --no-merges
     undo = reset --hard
@@ -22,3 +23,9 @@
     ff = pull --ff
 [svn]
     rmdir = true
+[user]
+    name = Dav Clark
+    email = davclark@berkeley.edu
+[filter "media"]
+    clean = git-media-clean %f
+    smudge = git-media-smudge %f

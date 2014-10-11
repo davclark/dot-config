@@ -6,6 +6,7 @@ export GREP_OPTIONS='--color=auto'
 PATH=/opt/local/bin:/usr/local/bin:$PATH
 PATH=$PATH:/Applications/git-annex.app/Contents/MacOS
 PATH=$PATH:/usr/local/share/npm/bin:/Applications/Mplus
+PATH=$PATH:/opt/BIDMach_0.9.0-osx-x86_64
 export PATH="/opt/anaconda/bin:$PATH"
 
 fish_style_dir_cmd='CurDir=`pwd|sed -e "s!$HOME!~!"|sed -Ee "s!([^/])[^/]+/!\1/!g"`'
@@ -26,6 +27,8 @@ alias skim='open -a Skim'
 # At one point I liked this for git diffs, etc.
 # export LESS=FRX
 
+export LESS=R
+
 if which rbenv > /dev/null
 then
     eval "$(rbenv init -)"
@@ -33,10 +36,14 @@ fi
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
 . $(brew --prefix)/etc/bash_completion
+complete -C aws_completer aws
 fi
 
+source ~/.config/secrets
 # This makes rate limiting less likely behind a NAT
-export HOMEBREW_GITHUB_API_TOKEN=c1ad8e078dc1af9c625e69524ee2e1dc53b35b90
+export HOMEBREW_GITHUB_API_TOKEN
+# Needed for teachers_pet (a ruby gem for teaching on GitHub)
+export TEACHERS_PET_GITHUB_TOKEN
 
 # OS X and other systems purportedly disagree about locale naming conventions,
 # especially once you've used a non-US locale

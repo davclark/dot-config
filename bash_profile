@@ -7,7 +7,14 @@ PATH=/opt/local/bin:/usr/local/bin:$PATH
 PATH=$PATH:/Applications/git-annex.app/Contents/MacOS
 PATH=$PATH:/usr/local/share/npm/bin:/Applications/Mplus
 PATH=$PATH:/opt/BIDMach_0.9.0-osx-x86_64
-export PATH="/opt/anaconda/bin:$PATH"
+PATH=/opt/anaconda/bin:$PATH
+
+# Setup for Spark / PySpark (sadly, that IPYTHON variable is a bit generally named...)
+export IPYTHON=1
+# export SPARK_HOME=~/Code/spark-1.3.1-bin-hadoop2.6
+export SPARK_HOME=/opt/anaconda/share/spark
+# export PATH=$SPARK_HOME/bin:$PATH
+export PYSPARK_SUBMIT_ARGS='--master local[*] --executor-memory 12g'
 
 fish_style_dir_cmd='CurDir=`pwd|sed -e "s!$HOME!~!"|sed -Ee "s!([^/])[^/]+/!\1/!g"`'
 # PROMPT_COMMAND="update_terminal_cwd; $fish_style_dir_cmd"
@@ -21,8 +28,15 @@ win_title='\[\033]0;\u@\h: \w\007\]'
 # The $ is escaped before CurDir because we want it evaluated for each prompt
 PS1="${win_title}dav@$(networksetup -getcomputername) \$CurDir$bold\$$plain "
 
-alias dct="ssh davclark@dlab-collaboratool.berkeley.edu"
 alias skim='open -a Skim'
+alias ta='task add'
+alias tl='task list'
+alias ts='task sync'
+alias to='task +OVERDUE'
+alias t='task'
+alias condaskel3='conda skeleton pypi --python-version 3.4'
+alias condabuild3='conda build --python 3.4'
+
 
 # At one point I liked this for git diffs, etc.
 # export LESS=FRX
@@ -36,8 +50,10 @@ fi
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
 . $(brew --prefix)/etc/bash_completion
-complete -C aws_completer aws
 fi
+
+# This shouldn't be dependent on the above
+complete -C aws_completer aws
 
 source ~/.config/secrets
 # This makes rate limiting less likely behind a NAT

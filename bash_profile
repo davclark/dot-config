@@ -34,9 +34,17 @@ alias tl='task list'
 alias ts='task sync'
 alias to='task +OVERDUE'
 alias t='task'
+
+# Finally, a reason to make a function
+tomorrow () {
+    task $1 modify due:tomorrow
+}
+
 alias condaskel3='conda skeleton pypi --python-version 3.4'
 alias condabuild3='conda build --python 3.4'
-
+# To have launchd start boot2docker at login:
+#     ln -sfv /usr/local/opt/boot2docker/*.plist ~/Library/LaunchAgents
+alias launch_docker='launchctl load ~/Library/LaunchAgents/homebrew.mxcl.boot2docker.plist'
 
 # At one point I liked this for git diffs, etc.
 # export LESS=FRX

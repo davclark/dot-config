@@ -7,12 +7,14 @@ PATH=/opt/local/bin:/usr/local/bin:$PATH
 PATH=$PATH:/Applications/git-annex.app/Contents/MacOS
 PATH=$PATH:/usr/local/share/npm/bin:/Applications/Mplus
 PATH=$PATH:/opt/BIDMach_0.9.0-osx-x86_64
-PATH=/opt/anaconda/bin:$PATH
+PATH=/opt/anaconda3/bin:$PATH
+PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
 
 # Setup for Spark / PySpark (sadly, that IPYTHON variable is a bit generally named...)
-export IPYTHON=1
+# export IPYTHON=1
 # export SPARK_HOME=~/Code/spark-1.3.1-bin-hadoop2.6
-export SPARK_HOME=/opt/anaconda/share/spark
+# Need to redo this at some point!
+# export SPARK_HOME=/opt/anaconda3/share/spark
 # export PATH=$SPARK_HOME/bin:$PATH
 export PYSPARK_SUBMIT_ARGS='--master local[*] --executor-memory 12g'
 
@@ -45,6 +47,11 @@ alias condabuild3='conda build --python 3.4'
 # To have launchd start boot2docker at login:
 #     ln -sfv /usr/local/opt/boot2docker/*.plist ~/Library/LaunchAgents
 alias launch_docker='launchctl load ~/Library/LaunchAgents/homebrew.mxcl.boot2docker.plist'
+
+# Because TAQ data is annoying
+zipcat() {
+    7z x -so $1 2> /dev/null
+}
 
 # At one point I liked this for git diffs, etc.
 # export LESS=FRX

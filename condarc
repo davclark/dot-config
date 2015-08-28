@@ -1,0 +1,6 @@
+binstar_upload: yes
+
+channels:
+   - defaults
+   - http://conda.binstar.org/binstar
+   - http://conda.binstar.org/davclark

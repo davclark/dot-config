@@ -21,6 +21,7 @@
     cm = commit -m
     rem = remote -v
     ff = pull --ff
+    amend = commit --amend --no-edit
 [svn]
     rmdir = true
 [user]

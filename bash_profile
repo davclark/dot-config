@@ -31,6 +31,7 @@ win_title='\[\033]0;\u@\h: \w\007\]'
 PS1="${win_title}dav@$(networksetup -getcomputername) \$CurDir$bold\$$plain "
 
 alias skim='open -a Skim'
+alias nv='open -a NeoVim'
 alias ta='task add'
 alias tl='task list'
 alias ts='task sync'

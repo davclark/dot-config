@@ -31,3 +31,6 @@ fish/
 inkscape/
 python-gnupg/
 secrets
+
+# R stuff
+.R*

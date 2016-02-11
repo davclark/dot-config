@@ -37,8 +37,13 @@ alias tl='task long'
 alias ts='task sync'
 alias to='task +OVERDUE'
 alias t='task'
+alias dm=docker-machine
 
-# Finally, a reason to make a function
+# simple functions to allow arguments inside of complicated commands
+dmenv () {
+    eval "$(docker-machine env $1)"
+}
+
 tomorrow () {
     task $1 modify due:tomorrow
 }
@@ -72,10 +77,6 @@ fi
 complete -C aws_completer aws
 
 source ~/.config/secrets
-# This makes rate limiting less likely behind a NAT
-export HOMEBREW_GITHUB_API_TOKEN
-# Needed for teachers_pet (a ruby gem for teaching on GitHub)
-export TEACHERS_PET_GITHUB_TOKEN
 
 # OS X and other systems purportedly disagree about locale naming conventions,
 # especially once you've used a non-US locale

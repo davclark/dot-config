@@ -50,9 +50,7 @@ tomorrow () {
 
 alias condaskel3='conda skeleton pypi --python-version 3.4'
 alias condabuild3='conda build --python 3.4'
-# To have launchd start boot2docker at login:
-#     ln -sfv /usr/local/opt/boot2docker/*.plist ~/Library/LaunchAgents
-alias launch_docker='launchctl load ~/Library/LaunchAgents/homebrew.mxcl.boot2docker.plist'
+
 # rsync + 1:
 # Resursive, preserve (sym)Links, preserve Times, Update,
 # Zcompress, Verbose, Append onto shorter files, keep Partial transfers,

@@ -23,9 +23,13 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Tools make these
 .*.sw[o-q]
 .ropeproject/
 .ipynb_checkpoints/
+.idea/
+
+# Stuff in .config I don't want to track
 Oculus VR LLC/
 fish/
 inkscape/

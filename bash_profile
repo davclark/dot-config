@@ -2,13 +2,7 @@ export EDITOR=vim
 
 export CLICOLOR=1
 export GREP_OPTIONS='--color=auto'
-# /usr/local/bin is already in the path, but it's AFTER /usr/bin
-PATH=/opt/local/bin:/usr/local/bin:$PATH
-PATH=$PATH:/Applications/git-annex.app/Contents/MacOS
-PATH=$PATH:/usr/local/share/npm/bin:/Applications/Mplus
-PATH=$PATH:/opt/BIDMach_0.9.0-osx-x86_64
-PATH=/opt/anaconda3/bin:$PATH
-PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
+PATH=$HOME/miniconda3/bin:$PATH
 
 # Setup for Spark / PySpark (sadly, that IPYTHON variable is a bit generally named...)
 # export IPYTHON=1
@@ -52,8 +46,8 @@ tomorrow () {
     task $1 modify due:tomorrow
 }
 
-alias condaskel3='conda skeleton pypi --python-version 3.4'
-alias condabuild3='conda build --python 3.4'
+alias condaskel3='conda skeleton pypi --python-version 3.5'
+alias condabuild3='conda build --python 3.5'
 
 # rsync + 1:
 # Resursive, preserve (sym)Links, preserve Times, Update,
@@ -83,10 +77,15 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 . $(brew --prefix)/etc/bash_completion
 fi
 
-# This shouldn't be dependent on the above
-complete -C aws_completer aws
+if which aws > /dev/null
+then
+    complete -C aws_completer aws
+fi
 
 source ~/.config/secrets
+
+# Stay in user-land!
+export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 
 # OS X and other systems purportedly disagree about locale naming conventions,
 # especially once you've used a non-US locale

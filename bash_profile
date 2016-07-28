@@ -22,7 +22,7 @@ bold="\[\e[1m\]"
 plain="\[\e[0m\]"
 win_title='\[\033]0;\u@\h: \w\007\]'
 # The $ is escaped before CurDir because we want it evaluated for each prompt
-PS1="${win_title}dav@$(networksetup -getcomputername) \$CurDir$bold\$$plain "
+PS1="${win_title}${USER}@$(networksetup -getcomputername) \$CurDir$bold\$$plain "
 
 alias skim='open -a Skim'
 alias nv='open -a NeoVim'

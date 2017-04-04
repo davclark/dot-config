@@ -3,7 +3,9 @@
 [color]
     ui = true
 [core]
-	excludesfile = /Users/clarkda/.config/git/ignore
+    excludesfile = /Users/clarkda/.config/git/ignore
+[diff "csv"]
+    wordRegex = [^,\n]+[,\n]|[,]
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -25,16 +27,16 @@
 [svn]
     rmdir = true
 [user]
-	name = Dav Clark
-	email = ClarkDa@kennedykrieger.org
+    name = Dav Clark
+    email = ClarkDa@kennedykrieger.org
 [filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
+    required = true
+    clean = git media clean %f
+    smudge = git media smudge %f
 
 [merge "ipynb"]
-	driver = binary
+    driver = binary
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+    required = true

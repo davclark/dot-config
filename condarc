@@ -1,7 +1,7 @@
-binstar_upload: yes
+anaconda_upload: true
 
 channels:
-   - defaults
-   # Not clear if there is a current analog of this...
-   # - http://conda.binstar.org/binstar
-   - davclark
+  - defaults
+  - r
+  - conda-forge
+  - davclark

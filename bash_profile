@@ -33,6 +33,8 @@ alias to='task +OVERDUE'
 alias t='task'
 alias dm=docker-machine
 
+alias be='bundle exec'
+
 # simple functions to allow arguments inside of complicated commands
 dmenv () {
     eval "$(docker-machine env $1)"

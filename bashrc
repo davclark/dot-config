@@ -1,8 +1,9 @@
+# Have a look at .bashrc.system in your home dir for more good stuff
+
 export EDITOR=vim
 
 export CLICOLOR=1
 export GREP_OPTIONS='--color=auto'
-PATH=$HOME/miniconda3/bin:$PATH
 
 # Setup for Spark / PySpark (sadly, that IPYTHON variable is a bit generally named...)
 # export IPYTHON=1
@@ -20,12 +21,16 @@ PROMPT_COMMAND="$fish_style_dir_cmd; $PROMPT_COMMAND"
 # The bold is pretty subtle, probably nice to use something else (color?)
 bold="\[\e[1m\]"
 plain="\[\e[0m\]"
-win_title='\[\033]0;\u@\h: \w\007\]'
-# The $ is escaped before CurDir because we want it evaluated for each prompt
-PS1="${win_title}${USER}@$(networksetup -getcomputername) \$CurDir$bold\$$plain "
 
-alias skim='open -a Skim'
-alias nv='open -a NeoVim'
+# I don't think this does anything on Ubuntu
+# win_title='\[\033]0;\u@\h: \w\007\]'
+
+# The $ is escaped before CurDir because we want it evaluated for each prompt
+# We also just put a literal $ at the end, since we are always dav
+# That debian_chroot thing was in the default prompt... figured I'd leave it
+# there
+PS1="${debian_chroot:+($debian_chroot)}\u@\h:\$CurDir$bold\$$plain "
+
 alias ta='task add'
 alias tl='task long'
 alias ts='task sync'
@@ -75,23 +80,10 @@ then
     eval "$(rbenv init -)"
 fi
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-. $(brew --prefix)/etc/bash_completion
-fi
-
 if which aws > /dev/null
 then
     complete -C aws_completer aws
 fi
 
-source ~/.config/secrets
+# source ~/.config/secrets
 
-# Stay in user-land!
-export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
-
-# OS X and other systems purportedly disagree about locale naming conventions,
-# especially once you've used a non-US locale
-# I got the below from the net, but this doesn't actually seem to work on Ubuntu
-# export LANG="en_US"
-# export LANGUAGE=$LANG
-# export LC_ALL=$LANG

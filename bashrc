@@ -3,7 +3,8 @@
 export EDITOR=vim
 
 export CLICOLOR=1
-export GREP_OPTIONS='--color=auto'
+# export GREP_OPTIONS='--color=auto'
+alias grep='grep --color=auto'
 
 # Setup for Spark / PySpark (sadly, that IPYTHON variable is a bit generally named...)
 # export IPYTHON=1

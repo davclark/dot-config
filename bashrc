@@ -29,6 +29,11 @@ alias grep='grep --color=auto'
 # export PATH=$SPARK_HOME/bin:$PATH
 export PYSPARK_SUBMIT_ARGS='--master local[*] --executor-memory 12g'
 
+if [ -d /opt/rocm ]; then
+    export PATH=/opt/rocm/bin:$PATH
+    export LD_LIBRARY_PATH=/opt/rocm/lib:$LD_LIBRARY_PATH
+fi
+
 fish_style_dir_cmd='CurDir=`pwd|sed -e "s!$HOME!~!"|sed -Ee "s!([^/])[^/]+/!\1/!g"`'
 # PROMPT_COMMAND="update_terminal_cwd; $fish_style_dir_cmd"
 
@@ -141,13 +146,12 @@ then
     eval "$(rbenv init -)"
 fi
 
-
 if which aws > /dev/null
 then
     complete -C aws_completer aws
 fi
 
-
-
-# source ~/.config/secrets
-
+if [ -f ~/.config/secrets ]
+then
+  source ~/.config/secrets
+fi

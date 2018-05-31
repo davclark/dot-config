@@ -19,3 +19,15 @@ pulse/
 user-dirs.dirs
 user-dirs.locale
 Gigantum/
+QtProject.conf
+beets/
+compiz-1/
+eog/
+gedit/
+guvcview2/
+htop/
+libaccounts-glib/
+libreoffice/
+totem/
+unity/
+vlc/

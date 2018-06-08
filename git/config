@@ -2,16 +2,11 @@
     default = simple
 [color]
     ui = true
-[core]
-    excludesfile = /Users/clarkda/.config/git/ignore
 [diff "csv"]
     wordRegex = [^,\n]+[,\n]|[,]
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
-[mergetool "sourcetree"]
-	cmd = /Users/clarkda/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [alias]
     lg = log --oneline --graph --decorate --all
     ls = log --stat
@@ -28,12 +23,11 @@
     rmdir = true
 [user]
     name = Dav Clark
-    email = ClarkDa@kennedykrieger.org
+    email = dav@bead.glass
 [filter "media"]
     required = true
     clean = git media clean %f
     smudge = git media smudge %f
-
 [merge "ipynb"]
     driver = binary
 [filter "lfs"]

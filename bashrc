@@ -34,6 +34,18 @@ if [ -d /opt/rocm ]; then
     export LD_LIBRARY_PATH=/opt/rocm/lib:$LD_LIBRARY_PATH
 fi
 
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+
 fish_style_dir_cmd='CurDir=`pwd|sed -e "s!$HOME!~!"|sed -Ee "s!([^/])[^/]+/!\1/!g"`'
 # PROMPT_COMMAND="update_terminal_cwd; $fish_style_dir_cmd"
 
@@ -66,9 +78,9 @@ fi
 # That debian_chroot thing was in the default prompt... figured I'd leave it
 # there
 if [ "$color_prompt" = yes ]; then
-    PS1="${debian_chroot:+($debian_chroot)}$green\u@\h$plain:$blue\$CurDir$plain\$ "
+    PS1="${debian_chroot:+($debian_chroot)}$green\u@\h$plain:$blue\$CurDir$plain\$(__git_ps1)\$ "
 else
-    PS1="${debian_chroot:+($debian_chroot)}\u@\h:\$CurDir$bold\$$plain "
+    PS1="${debian_chroot:+($debian_chroot)}\u@\h:\$CurDir\$(__git_ps1)$bold\$$plain "
 fi
 
 # color support of ls
@@ -129,17 +141,6 @@ export LESS=R
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
 
 if which rbenv > /dev/null
 then

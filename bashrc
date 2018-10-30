@@ -17,6 +17,9 @@ shopt -s checkwinsize
 
 export EDITOR=vim
 
+export GOPATH=$HOME/gopath
+PATH=$GOPATH:$GOPATH/bin:$PATH
+
 export CLICOLOR=1
 # export GREP_OPTIONS='--color=auto'
 alias grep='grep --color=auto'

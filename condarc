@@ -3,5 +3,4 @@ anaconda_upload: true
 channels:
   - defaults
   - r
-  - conda-forge
   - davclark

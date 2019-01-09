@@ -132,9 +132,26 @@ alias condabuild3='conda build --python 3.6'
 # preserve Permissions (-p)
 alias rsynd='rsync -rltuzv --append --partial --sparse --executability'
 
+# Note that the below uses the named portainer_data volume
+alias portainer='docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer'
+
 # Because TAQ data is annoying
 zipcat() {
     7z x -so $1 2> /dev/null
+}
+
+
+# It's annoyingly hard sometimes to delete an image...
+recursive_docker_rmi() {
+  for image in $(docker images --quiet --filter "since=${1}")
+  do
+    if [ $(docker history --quiet ${image} | grep ${1}) ]
+    then
+      recursive_remove_image "${image}"
+    fi
+  done
+  echo "Removing: ${1}"
+  docker rmi -f ${1}
 }
 
 # At one point I liked this for git diffs, etc.
@@ -159,3 +176,5 @@ if [ -f ~/.config/secrets ]
 then
   source ~/.config/secrets
 fi
+
+. /home/dav/miniconda3/etc/profile.d/conda.sh

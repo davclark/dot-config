@@ -23,7 +23,7 @@
     rmdir = true
 [user]
     name = Dav Clark
-    email = dav@gigantum.com
+    email = dav@bead.glass
 [filter "media"]
     required = true
     clean = git media clean %f

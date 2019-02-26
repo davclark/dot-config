@@ -177,4 +177,7 @@ then
   source ~/.config/secrets
 fi
 
-. /home/dav/miniconda3/etc/profile.d/conda.sh
+if [ -f ~/miniconda3/etc/profile.d/conda.sh ]
+then
+    . ~/miniconda3/etc/profile.d/conda.sh
+fi

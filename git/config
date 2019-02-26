@@ -24,6 +24,7 @@
 [user]
     name = Dav Clark
     email = dav@bead.glass
+	signingkey = 772649897869751A
 [filter "media"]
     required = true
     clean = git media clean %f
@@ -35,3 +36,6 @@
 	smudge = git-lfs smudge -- %f
     required = true
 	process = git-lfs filter-process
+[gpg]
+[commit]
+	gpgsign = true

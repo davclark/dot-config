@@ -135,6 +135,8 @@ alias rsynd='rsync -rltuzv --append --partial --sparse --executability'
 # Note that the below uses the named portainer_data volume
 alias portainer='docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer'
 
+alias sshec2='ssh -oStrictHostKeyChecking=no -i ~/.ssh/dav-testing.pem -L 10000:localhost:10000'
+
 # Because TAQ data is annoying
 zipcat() {
     7z x -so $1 2> /dev/null

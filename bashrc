@@ -172,6 +172,7 @@ fi
 if which aws > /dev/null
 then
     complete -C aws_completer aws
+    export AWS_DEFAULT=gtm-demos
 fi
 
 if [ -f ~/.config/secrets ]

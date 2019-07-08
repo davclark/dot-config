@@ -112,7 +112,7 @@ dmenv () {
     eval "$(docker-machine env $1)"
 }
 
-docker-bash () {
+dbash () {
     docker exec -i -t $1 bash
 }
 

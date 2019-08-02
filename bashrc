@@ -113,7 +113,7 @@ dmenv () {
 }
 
 dbash () {
-    docker exec -i -t $1 bash
+    docker exec -it $1 bash
 }
 
 tomorrow () {

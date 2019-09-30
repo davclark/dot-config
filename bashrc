@@ -133,7 +133,7 @@ alias condabuild3='conda build --python 3.6'
 alias rsynd='rsync -rltuzv --append --partial --sparse --executability'
 
 # Note that the below uses the named portainer_data volume
-alias portainer='docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer'
+alias portainer='docker run --rm -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer'
 
 alias sshec2='ssh -oStrictHostKeyChecking=accept-new -i ~/.ssh/dav-testing.pem -L 10000:localhost:10000'
 

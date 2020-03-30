@@ -39,3 +39,5 @@
 [gpg]
 [commit]
 	gpgsign = true
+[credential]
+	helper = store

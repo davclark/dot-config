@@ -81,9 +81,9 @@ fi
 # That debian_chroot thing was in the default prompt... figured I'd leave it
 # there
 if [ "$color_prompt" = yes ]; then
-    PS1="${debian_chroot:+($debian_chroot)}$green\u@\h$plain:$blue\$CurDir$plain\$(__git_ps1)\$ "
+    PS1="${debian_chroot:+($debian_chroot)}$green\u@\h$plain:$blue\$CurDir$plain\$(__git_ps1)\\\$ "
 else
-    PS1="${debian_chroot:+($debian_chroot)}\u@\h:\$CurDir\$(__git_ps1)$bold\$$plain "
+    PS1="${debian_chroot:+($debian_chroot)}\u@\h:\$CurDir\$(__git_ps1)$bold\\\$$plain "
 fi
 
 # color support of ls

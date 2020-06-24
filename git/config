@@ -1,12 +1,11 @@
 [push]
     default = simple
+[pull]
+	ff = only
 [color]
     ui = true
 [diff "csv"]
     wordRegex = [^,\n]+[,\n]|[,]
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
 [alias]
     lg = log --oneline --graph --decorate --all
     ls = log --stat
@@ -23,8 +22,9 @@
     rmdir = true
 [user]
     name = Dav Clark
-    email = dav@bead.glass
-	signingkey = 772649897869751A
+    email = dav@gigantum.com
+    # signingkey = 772649897869751A
+    signingkey = 6FAA6D2CAF4CE3ECD55DBC43772649897869751A
 [filter "media"]
     required = true
     clean = git media clean %f
@@ -32,12 +32,11 @@
 [merge "ipynb"]
     driver = binary
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
     required = true
-	process = git-lfs filter-process
-[gpg]
+    process = git-lfs filter-process
 [commit]
-	gpgsign = true
+    gpgsign = true
 [credential]
-	helper = store
+    helper = store

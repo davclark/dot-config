@@ -17,8 +17,11 @@ shopt -s checkwinsize
 
 export EDITOR=vim
 
+# Go (installed globally)
 export GOPATH=$HOME/gopath
-PATH=$GOPATH:$GOPATH/bin:$PATH
+PATH=$GOPATH/bin:/usr/local/go:$PATH
+# Rust
+PATH="$HOME/.cargo/bin:$PATH"
 
 export CLICOLOR=1
 # export GREP_OPTIONS='--color=auto'

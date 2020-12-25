@@ -22,7 +22,7 @@
     rmdir = true
 [user]
     name = Dav Clark
-    email = dav@gigantum.com
+    email = dav@bead.glass
     # signingkey = 772649897869751A
     signingkey = 6FAA6D2CAF4CE3ECD55DBC43772649897869751A
 [filter "media"]
@@ -38,5 +38,5 @@
     process = git-lfs filter-process
 [commit]
     gpgsign = true
-[credential]
-    helper = store
+# [credential]
+#     helper = store

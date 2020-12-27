@@ -38,11 +38,6 @@ alias grep='grep --color=auto'
 # export PATH=$SPARK_HOME/bin:$PATH
 export PYSPARK_SUBMIT_ARGS='--master local[*] --executor-memory 12g'
 
-if [ -d /opt/rocm ]; then
-    export PATH=/opt/rocm/bin:$PATH
-    export LD_LIBRARY_PATH=/opt/rocm/lib:$LD_LIBRARY_PATH
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -126,8 +121,8 @@ tomorrow () {
     task $1 modify due:tomorrow
 }
 
-alias condaskel3='conda skeleton pypi --python-version 3.6'
-alias condabuild3='conda build --python 3.6'
+# alias condaskel3='conda skeleton pypi --python-version 3.6'
+# alias condabuild3='conda build --python 3.6'
 
 # rsync + 1:
 # Resursive, preserve (sym)Links, preserve Times, Update,

@@ -24,8 +24,9 @@ export EDITOR=vim
 # Go (installed globally)
 export GOPATH=$HOME/gopath
 PATH=$GOPATH/bin:/usr/local/go:$PATH
+
 # Rust
-PATH="$HOME/.cargo/bin:$PATH"
+source "$HOME/.cargo/env"
 
 export CLICOLOR=1
 # export GREP_OPTIONS='--color=auto'

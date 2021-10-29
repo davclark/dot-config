@@ -186,8 +186,18 @@ then
   source ~/.config/secrets
 fi
 
-# This is I guess the old way of activating conda, and doesn't add anything
-# to my path. Don't let anaconda mess this up again!
-if [ -f "/home/dav/miniconda3/etc/profile.d/conda.sh" ]; then
-    . "/home/dav/miniconda3/etc/profile.d/conda.sh"
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/dav/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/dav/mambaforge/etc/profile.d/conda.sh" ]; then
+        . "/home/dav/mambaforge/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/dav/mambaforge/bin:$PATH"
+    fi
 fi
+unset __conda_setup
+# <<< conda initialize <<<
+

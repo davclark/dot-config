@@ -26,7 +26,10 @@ export GOPATH=$HOME/gopath
 PATH=$GOPATH/bin:/usr/local/go:$PATH
 
 # Rust
-source "$HOME/.cargo/env"
+if [ -f ~/.cargo/env ]
+then
+    source "$HOME/.cargo/env"
+fi
 
 export CLICOLOR=1
 # export GREP_OPTIONS='--color=auto'

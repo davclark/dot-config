@@ -3,3 +3,4 @@ anaconda_upload: true
 
 channels:
   - defaults
+env_prompt: '({name}) '

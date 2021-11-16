@@ -121,7 +121,7 @@ alias dm=docker-machine
 
 alias be='bundle exec'
 
-alias kubectl='minikube kubectl --'
+# alias kubectl='minikube kubectl --'
 
 # simple functions to allow arguments inside of complicated commands
 dmenv () {

@@ -22,8 +22,7 @@
     rmdir = true
 [user]
     name = Dav Clark
-    email = dav@bead.glass
-    # signingkey = 772649897869751A
+    email = dav.clark@noteable.io
     signingkey = 6FAA6D2CAF4CE3ECD55DBC43772649897869751A
 [filter "media"]
     required = true
@@ -36,7 +35,8 @@
     smudge = git-lfs smudge -- %f
     required = true
     process = git-lfs filter-process
-# [commit]
-#     gpgsign = true
-# [credential]
-#     helper = store
+[commit]
+    gpgsign = true
+[credential]
+    # Installed if you `scoop install git`
+    helper = "/mnt/c/Users/davcl/scoop/apps/git/curent/mingw64/libexec/git-core/git-credential-manager-core.exe"

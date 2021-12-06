@@ -121,8 +121,6 @@ alias dm=docker-machine
 
 alias be='bundle exec'
 
-# alias kubectl='minikube kubectl --'
-
 # simple functions to allow arguments inside of complicated commands
 dmenv () {
     eval "$(docker-machine env $1)"
@@ -188,7 +186,6 @@ fi
 if which aws > /dev/null
 then
     complete -C aws_completer aws
-    export AWS_PROFILE=gtm-demos
 fi
 
 if [ -f ~/.config/secrets ]

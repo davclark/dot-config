@@ -38,3 +38,6 @@ secrets
 
 # R stuff
 .R*
+
+# Personal task management
+bb.edn

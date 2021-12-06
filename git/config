@@ -16,8 +16,9 @@
     cam = commit -am
     cm = commit -m
     rem = remote -v
-    ff = pull --ff
     amend = commit --amend --no-edit
+    prn = remote prune origin
+    aliases = config --get-regexp '^alias\\.'
 [svn]
     rmdir = true
 [user]

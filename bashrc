@@ -19,28 +19,30 @@ shopt -s checkwinsize
 # match all files and zero or more directories and subdirectories.
 shopt -s globstar
 
-export EDITOR=vim
+export EDITOR=nvim
 
+# WSL2 stuff
 if [ -x /usr/bin/wslview ]
 then
     export BROWSER=wslview
 fi
 
-# Go (installed globally)
-export GOPATH=$HOME/gopath
-PATH=$GOPATH/bin:/usr/local/go:$PATH
-
-# Rust
-if [ -f ~/.cargo/env ]
-then
-    source "$HOME/.cargo/env"
-fi
-
-export CLICOLOR=1
-# export GREP_OPTIONS='--color=auto'
 if [[ $WSL2 ]]; then
     export GPG_TTY=$(tty)
 fi
+
+# Go (installed globally)
+# export GOPATH=$HOME/gopath
+# PATH=$GOPATH/bin:/usr/local/go:$PATH
+
+# Rust
+# if [ -f ~/.cargo/env ]
+# then
+#     source "$HOME/.cargo/env"
+# fi
+
+export CLICOLOR=1
+# export GREP_OPTIONS='--color=auto'
 alias grep='grep --color=auto'
 
 # Setup for Spark / PySpark (sadly, that IPYTHON variable is a bit generally named...)
@@ -49,7 +51,7 @@ alias grep='grep --color=auto'
 # Need to redo this at some point!
 # export SPARK_HOME=/opt/anaconda3/share/spark
 # export PATH=$SPARK_HOME/bin:$PATH
-export PYSPARK_SUBMIT_ARGS='--master local[*] --executor-memory 12g'
+# export PYSPARK_SUBMIT_ARGS='--master local[*] --executor-memory 12g'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -61,7 +63,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
 
 fish_style_dir_cmd='CurDir=`pwd|sed -e "s!$HOME!~!"|sed -Ee "s!([^/])[^/]+/!\1/!g"`'
 # PROMPT_COMMAND="update_terminal_cwd; $fish_style_dir_cmd"
@@ -112,14 +113,16 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-alias ta='task add'
-alias tl='task long'
-alias ts='task sync'
-alias to='task +OVERDUE'
-alias t='task'
+# Archived taskwarrior stuff
+# alias ta='task add'
+# alias tl='task long'
+# alias ts='task sync'
+# alias to='task +OVERDUE'
+# alias t='task'
+# tomorrow () {
+#     task $1 modify due:tomorrow
+# }
 alias dm=docker-machine
-
-alias be='bundle exec'
 
 # simple functions to allow arguments inside of complicated commands
 dmenv () {
@@ -130,9 +133,6 @@ dbash () {
     docker exec -it $1 bash
 }
 
-tomorrow () {
-    task $1 modify due:tomorrow
-}
 
 # alias condaskel3='conda skeleton pypi --python-version 3.6'
 # alias condabuild3='conda build --python 3.6'
@@ -149,7 +149,7 @@ alias rsynd='rsync -rltuzv --append --partial --sparse --executability'
 # Note that the below uses the named portainer_data volume
 alias portainer='docker run --rm -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer'
 
-alias sshec2='ssh -oStrictHostKeyChecking=accept-new -i ~/.ssh/dav-testing.pem -L 10000:localhost:10000'
+# alias sshec2='ssh -oStrictHostKeyChecking=accept-new -i ~/.ssh/dav-testing.pem -L 10000:localhost:10000'
 
 # Because TAQ data is annoying
 zipcat() {
@@ -193,22 +193,6 @@ then
   source ~/.config/secrets
 fi
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/dav/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/dav/mambaforge/etc/profile.d/conda.sh" ]; then
-        . "/home/dav/mambaforge/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/dav/mambaforge/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

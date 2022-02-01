@@ -38,6 +38,6 @@
     process = git-lfs filter-process
 [commit]
     gpgsign = true
-[credential]
+# [credential]
     # Installed if you `scoop install git`
-    helper = "/mnt/c/Users/davcl/scoop/apps/git/curent/mingw64/libexec/git-core/git-credential-manager-core.exe"
+    # helper = "/mnt/c/Users/davcl/scoop/apps/git/curent/mingw64/libexec/git-core/git-credential-manager-core.exe"

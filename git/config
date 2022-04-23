@@ -41,3 +41,5 @@
 # [credential]
     # Installed if you `scoop install git`
     # helper = "/mnt/c/Users/davcl/scoop/apps/git/curent/mingw64/libexec/git-core/git-credential-manager-core.exe"
+[init]
+	defaultBranch = main

@@ -188,6 +188,15 @@ then
     complete -C aws_completer aws
 fi
 
+
+if [ -f ~/.local/share/noteable/bash_aws_okta_helper.sh ]; then
+    source ~/.local/share/noteable/bash_aws_okta_helper.sh
+fi
+
+# if [ -f ~/.local/share/noteable/kubie.bash ]; then
+#     source ~/.local/share/noteable/kubie.bash
+# fi
+
 if [ -f ~/.config/secrets ]
 then
   source ~/.config/secrets

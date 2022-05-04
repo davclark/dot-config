@@ -64,11 +64,14 @@ if ! shopt -oq posix; then
   fi
 fi
 
-fish_style_dir_cmd='CurDir=`pwd|sed -e "s!$HOME!~!"|sed -Ee "s!([^/])[^/]+/!\1/!g"`'
+# Giving up my lovingly crafted fish-style shell for starship...
+# fish_style_dir_cmd='CurDir=`pwd|sed -e "s!$HOME!~!"|sed -Ee "s!([^/])[^/]+/!\1/!g"`'
 # PROMPT_COMMAND="update_terminal_cwd; $fish_style_dir_cmd"
 
 # This approach is more portable
-PROMPT_COMMAND="$fish_style_dir_cmd; $PROMPT_COMMAND"
+# PROMPT_COMMAND="$fish_style_dir_cmd; $PROMPT_COMMAND"
+
+eval "$(starship init bash)"
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in

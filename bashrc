@@ -35,11 +35,11 @@ fi
 # export GOPATH=$HOME/gopath
 # PATH=$GOPATH/bin:/usr/local/go:$PATH
 
-# Rust
-# if [ -f ~/.cargo/env ]
-# then
-#     source "$HOME/.cargo/env"
-# fi
+# Cargo-installed binaries (I install rust and cargo via asdf)
+if [ -d ~/.cargo/bin ]
+then
+    PATH=$HOME/.cargo/bin:$PATH
+fi
 
 export CLICOLOR=1
 # export GREP_OPTIONS='--color=auto'

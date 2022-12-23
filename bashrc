@@ -36,10 +36,10 @@ fi
 # PATH=$GOPATH/bin:/usr/local/go:$PATH
 
 # Cargo-installed binaries (I install rust and cargo via asdf)
-if [ -d ~/.cargo/bin ]
-then
-    PATH=$HOME/.cargo/bin:$PATH
-fi
+# if [ -d ~/.cargo/bin ]
+# then
+#     PATH=$HOME/.cargo/bin:$PATH
+# fi
 
 export CLICOLOR=1
 # export GREP_OPTIONS='--color=auto'
@@ -79,18 +79,18 @@ case "$TERM" in
 esac
 
 # The bold is pretty subtle, so we only use it as a fallback if there's no color
-bold="\[\e[1m\]"
-plain="\[\e[0m\]"
-green="\[\e[01;32m\]"
-blue="\[\e[01;34m\]"
+# bold="\[\e[1m\]"
+# plain="\[\e[0m\]"
+# green="\[\e[01;32m\]"
+# blue="\[\e[01;34m\]"
 
 # I don't think this does anything on Ubuntu
 # win_title='\[\033]0;\u@\h: \w\007\]'
 
 # set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
+# if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+#     debian_chroot=$(cat /etc/debian_chroot)
+# fi
 
 # The following is in double-quotes so it gets one round of variable expansion
 # at time of definition (thus, the \$ before CurDir)
@@ -98,11 +98,11 @@ fi
 # We also just put a literal $ at the end, since we are always dav
 # That debian_chroot thing was in the default prompt... figured I'd leave it
 # there
-if [ "$color_prompt" = yes ]; then
-    PS1="${debian_chroot:+($debian_chroot)}$green\u@\h$plain:$blue\$CurDir$plain\$(__git_ps1)\\\$ "
-else
-    PS1="${debian_chroot:+($debian_chroot)}\u@\h:\$CurDir\$(__git_ps1)$bold\\\$$plain "
-fi
+# if [ "$color_prompt" = yes ]; then
+#     PS1="${debian_chroot:+($debian_chroot)}$green\u@\h$plain:$blue\$CurDir$plain\$(__git_ps1)\\\$ "
+# else
+#     PS1="${debian_chroot:+($debian_chroot)}\u@\h:\$CurDir\$(__git_ps1)$bold\\\$$plain "
+# fi
 
 # color support of ls
 if [ -x /usr/bin/dircolors ]; then
